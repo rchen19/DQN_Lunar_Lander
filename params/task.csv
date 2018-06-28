@@ -1,0 +1,9 @@
+,ann,batch_size,converge_episode,converge_value,dd,decay_schedule,eps_decay,eps_end,eps_start,eps_step_limit,gamma,learn_interval,loss,lr,lr_decay,max_episode,memory_capacity,note,optim,target_replace_iter,tau
+task_0001,Net_03,8000,150,220,False,1,170,0.005,1.0,2000,0.99,1,mse,5e-05,0.8,2500,100000,,rms,500,0.02
+task_0002,Net_02,8000,150,220,False,1,170,0.005,1.0,2000,0.99,1,mse,5e-05,0.8,2500,100000,,rms,500,0.02
+task_0003,Net_01,8000,150,220,True,1,170,0.005,1.0,2000,0.99,1,mse,5e-05,0.8,2500,100000,,rms,500,0.02
+task_0004,Net_03,8000,150,220,False,1,170,0.005,1.0,2000,0.9,1,mse,5e-05,0.8,2500,100000,,rms,500,0.02
+task_0005,Net_03,8000,150,220,False,1,170,0.005,1.0,2000,0.999,1,mse,5e-05,0.8,2500,100000,,rms,500,0.02
+task_0006,Net_03,8000,150,220,False,1,170,0.005,1.0,2000,0.99,1,huber,5e-05,0.8,2500,100000,,rms,500,0.02
+task_0007,Net_03,8000,150,220,False,1,170,0.005,1.0,2000,0.99,1,mse,5e-05,0.8,2500,100000,,adam,500,0.02
+

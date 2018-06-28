@@ -1,0 +1,92 @@
+,ann,batch_size,converge_episode,converge_value,dd,decay_schedule,eps_decay,eps_end,eps_start,eps_step_limit,gamma,learn_interval,loss,lr,lr_decay,max_episode,memory_capacity,note,optim,target_replace_iter,tau
+param_0000,,64,,,False,,1000000,0.05,0.99,,0.99,,,0.005,0.8,5000,4000,,,10,0.1
+param_0001,,64,,,True,,1000000,0.05,0.99,,0.99,,,0.005,0.8,5000,4000,net with 4 layers,,10,0.1
+param_0002,net_01,64,,,True,,1000000,0.05,0.99,,0.995,,,0.005,0.8,5000,4000,net with 80 nodes,,10,0.01
+param_0003,net_01,64,,,True,,1000000,0.05,0.99,,0.995,,,0.005,0.8,5000,4000,net with 80 nodes,,10,0.01
+param_0004,net_01,64,,,True,,1000000,0.05,0.99,,0.9,,,0.005,0.8,5000,4000,net with 80 nodes,,10,0.01
+param_0005,net_01,64,,,True,,1000000,0.05,0.99,,0.995,,,0.005,0.8,5000,4000,net with 80 nodes,,10,0.05
+param_0006,net_01,64,,,True,,1000000,0.05,0.99,,0.9,,,0.005,0.8,5000,4000,net with 80 nodes,,10,0.05
+param_0007,net_02,4096,,,True,,1000000,0.05,0.99,,0.95,,,0.005,0.8,5000,40000,"changed learning schedule, memory capacity, and batch size",,10,0.05
+param_0008,net_02,4096,,,True,,1000000,0.05,0.99,,0.95,,,0.001,0.8,5000,100000,"changed learning schedule, memory capacity, and batch size",,10,0.05
+param_0009,net_02,4096,,,False,,1000000,0.05,0.99,,0.99,,,0.001,0.8,5000,100000,"changed learning schedule, memory capacity, and batch size",,10,0.05
+param_0010,net_02,4096,,,False,,1000000,0.05,0.99,,0.99,5,,0.0001,0.8,5000,100000,"changed learning schedule, memory capacity, and batch size",,10,0.01
+param_0011,net_02,4096,,,False,,1000000,0.05,0.99,,0.99,5,,0.0001,0.8,5000,100000,"changed learning schedule, memory capacity, and batch size",,10,0.02
+param_0012,net_02,4096,,,False,,1000000,0.05,0.99,,0.99,5,,1e-05,0.8,5000,100000,"changed learning schedule, memory capacity, and batch size",,10,0.01
+param_0013,net_02,4096,,,False,,1000000,0.05,0.99,,0.99,5,,1e-05,0.8,5000,100000,"changed learning schedule, memory capacity, and batch size",,10,0.02
+param_0014,net_02,4096,,,False,,1000000,0.05,0.99,,0.99,5,,1e-06,0.8,5000,100000,"changed learning schedule, memory capacity, and batch size",,10,0.01
+param_0015,net_02,4096,,,False,,1000000,0.05,0.99,,0.99,5,,1e-06,0.8,5000,100000,"changed learning schedule, memory capacity, and batch size",,10,0.02
+param_0016,net_02,4096,,,True,,1000000,0.05,0.99,,0.99,1,,1e-06,0.8,5000,100000,"changed learning schedule, memory capacity, and batch size",,10,0.02
+param_0017,net_02,4096,,,True,,1000000,0.05,0.99,,0.99,1,,1e-06,0.8,5000,100000,"changed learning schedule, memory capacity, and batch size",,10,0.02
+param_0018,net_02,4096,,,False,,1000000,0.05,0.99,,0.99,1,,1e-06,0.8,5000,100000,"changed learning schedule, memory capacity, and batch size",,10,0.02
+param_0019,net_02,4096,,,True,,1000000,0.05,0.99,,0.99,1,,1e-06,0.8,5000,100000,"changed learning schedule, memory capacity, and batch size",,10,0.01
+param_0020,net_02,4096,,,False,,1000000,0.05,0.99,,0.99,1,,1e-06,0.8,5000,100000,"changed learning schedule, memory capacity, and batch size",,10,0.01
+param_0021,net_02,4096,,,True,,1000000,0.05,0.99,,0.99,1,,1e-05,0.8,5000,100000,"changed learning schedule, memory capacity, and batch size",,10,0.02
+param_0022,net_02,4096,,,False,,1000000,0.05,0.99,,0.99,1,,1e-05,0.8,5000,100000,"changed learning schedule, memory capacity, and batch size",,10,0.02
+param_0023,net_02,4096,,,True,,1000000,0.05,0.99,,0.99,1,,1e-05,0.8,5000,100000,"changed learning schedule, memory capacity, and batch size",,10,0.01
+param_0024,net_02,4096,,,False,,1000000,0.05,0.99,,0.99,1,,1e-05,0.8,5000,100000,"changed learning schedule, memory capacity, and batch size",,10,0.01
+param_0025,net_02,4096,,,True,,1000000,0.05,0.99,,0.99,1,,0.0001,0.8,5000,100000,"changed learning schedule, memory capacity, and batch size",,10,0.02
+param_0026,net_02,4096,,,False,,1000000,0.05,0.99,,0.99,1,,0.0001,0.8,5000,100000,"changed learning schedule, memory capacity, and batch size",,10,0.02
+param_0027,net_02,4096,,,True,,1000000,0.05,0.99,,0.99,1,,0.0001,0.8,5000,100000,"changed learning schedule, memory capacity, and batch size",,10,0.01
+param_0028,net_02,4096,,,False,,1000000,0.05,0.99,,0.99,1,,0.0001,0.8,5000,100000,"changed learning schedule, memory capacity, and batch size",,10,0.01
+param_0029,net_03,8000,,,True,2,3000,0.05,0.99,,0.9,1,huber,0.0001,0.8,5000,100000,80 nodes per layer,rms,10,0.01
+param_0030,Net_03,8000,,,True,1,2000,0.05,0.99,2500,0.99,1,huber,1e-05,0.8,5000,100000,"add eps_step_limit, no gradient clipping",rms,10,0.01
+param_0031,Net_03,8000,,,True,1,2000,0.05,0.99,2500,0.99,1,huber,1e-05,0.8,5000,100000,"add eps_step_limit, no gradient clipping",rms,10,0.01
+param_0032,Net_03,8000,,,True,1,2000,0.05,0.99,2500,0.99,1,huber,1e-05,0.8,5000,100000,"add eps_step_limit, no gradient clipping",rms,10,0.01
+param_0033,Net_01,8000,,,True,1,2000,0.05,0.99,2500,0.99,1,huber,0.0002,0.8,5000,100000,"add eps_step_limit, no gradient clipping",rms,10,0.01
+param_0034,Net_01,8000,,,False,1,2000,0.05,1.0,2500,0.99,1,huber,0.0002,0.8,5000,100000,"add eps_step_limit, no gradient clipping",rms,10,0.01
+param_0035,Net_01,8000,,,False,1,2000,0.05,1.0,2500,0.99,1,huber,0.0002,0.8,5000,100000,"add eps_step_limit, no gradient clipping, sample wo replacement",rms,10,0.01
+param_0036,Net_01,8000,,,False,1,2000,0.05,1.0,2500,0.99,1,huber,0.0002,0.8,5000,100000,"add eps_step_limit, no gradient clipping, sample wo replacement",rms,10,0.01
+param_0037,Net_01,8000,,,False,1,3000,0.05,1.0,2500,0.99,1,huber,0.0002,0.8,5000,100000,"add eps_step_limit, no gradient clipping, sample wo replacement",rms,10,
+param_0038,Net_01,8000,,,False,1,3000,0.05,1.0,2500,0.95,1,huber,0.0002,0.8,5000,100000,"add eps_step_limit, no gradient clipping, sample wo replacement",rms,10,
+param_0039,Net_01,8000,,,False,1,3000,0.05,1.0,2500,0.99,1,huber,0.0002,0.8,5000,100000,"add eps_step_limit, no gradient clipping, sample wo replacement",rms,500,
+param_0040,Net_03,8000,,,False,1,3000,0.05,1.0,2500,0.99,1,huber,0.0002,0.8,5000,100000,"add eps_step_limit, no gradient clipping, sample wo replacement",rms,500,
+param_0041,Net_03,8000,,,False,1,400,0.05,1.0,2500,0.99,1,huber,0.0002,0.8,5000,100000,"add eps_step_limit, no gradient clipping, sample wo replacement",rms,500,
+param_0042,Net_03,8000,,,False,1,100,0.05,1.0,2500,0.99,1,mse,0.0002,0.8,5000,100000,"add eps_step_limit, no gradient clipping, sample wo replacement",rms,500,
+param_0043,Net_03,8000,,,False,1,170,0.005,1.0,2500,0.99,1,mse,0.0002,0.8,1500,100000,"add eps_step_limit, no gradient clipping, sample wo replacement",rms,500,
+param_0044,Net_03,8000,,,False,1,170,0.005,1.0,2500,0.95,1,mse,0.0002,0.8,1500,100000,"add eps_step_limit, no gradient clipping, sample wo replacement",rms,500,
+param_0045,Net_03,8000,,,False,1,170,0.005,1.0,2500,0.99,1,mse,0.0002,0.8,950,100000,"add eps_step_limit, no gradient clipping, sample wo replacement",rms,500,
+param_0046,Net_03,8000,,,False,1,170,0.005,1.0,2500,0.95,1,mse,0.0002,0.8,950,100000,"add eps_step_limit, no gradient clipping, sample wo replacement",rms,500,
+param_0047,Net_03,8000,,,False,1,170,0.005,1.0,2500,0.99,1,mse,0.0002,0.8,950,100000,"add eps_step_limit, no gradient clipping, sample wo replacement",rms,500,
+param_0048,Net_03,8000,,,False,1,170,0.005,1.0,2500,0.99,1,mse,0.0002,0.8,950,100000,"add eps_step_limit, no gradient clipping, sample wo replacement",rms,500,
+param_0049,Net_03,8000,100,230,False,1,170,0.005,1.0,2500,0.99,1,mse,0.0002,0.8,1500,100000,"add eps_step_limit, no gradient clipping, sample wo replacement",rms,500,
+param_0050,Net_03,8000,100,230,False,1,170,0.005,1.0,2500,0.99,1,mse,0.0002,0.8,1500,100000,"add eps_step_limit, no gradient clipping, sample wo replacement",rms,500,0.002
+param_0051,Net_03,8000,100,230,False,1,170,0.005,1.0,2500,0.99,1,mse,0.00025,0.8,1500,100000,"add eps_step_limit, no gradient clipping, sample wo replacement",rms,500,
+param_0052,Net_03,8000,100,230,False,1,170,0.005,1.0,2500,0.99,1,mse,0.00025,0.8,1500,100000,"add eps_step_limit, no gradient clipping, sample wo replacement",rms,500,0.02
+param_0053,Net_03,8000,90,205,False,1,170,0.005,1.0,2000,0.99,1,mse,0.00025,0.8,1500,100000,"add eps_step_limit, no gradient clipping, sample wo replacement",rms,500,
+param_0054,Net_03,8000,90,205,False,1,170,0.005,1.0,2000,0.99,1,mse,0.00025,0.8,1500,100000,"add eps_step_limit, no gradient clipping, sample wo replacement",rms,500,0.02
+param_0055,Net_03,8000,90,205,False,1,170,0.005,1.0,2000,0.99,1,mse,0.00025,0.8,1500,100000,"add eps_step_limit, no gradient clipping, sample wo replacement",rms,500,0.01
+param_0056,Net_03,8000,90,205,False,1,170,0.005,1.0,2000,0.99,1,mse,0.00025,0.8,1500,100000,"add eps_step_limit, no gradient clipping, sample wo replacement",rms,500,0.05
+param_0057,Net_03,8000,90,205,False,1,170,0.005,1.0,2000,0.99,1,mse,5e-05,0.8,1500,100000,"add eps_step_limit, no gradient clipping, sample wo replacement",rms,500,
+param_0058,Net_03,8000,90,205,False,1,170,0.005,1.0,2000,0.99,1,mse,5e-05,0.8,1500,100000,"add eps_step_limit, no gradient clipping, sample wo replacement",rms,500,0.02
+param_0059,Net_03,8000,90,205,False,1,170,0.005,1.0,2000,0.99,1,mse,5e-05,0.8,1500,100000,"add eps_step_limit, no gradient clipping, sample wo replacement",rms,500,0.01
+param_0060,Net_03,8000,90,205,False,1,170,0.005,1.0,2000,0.99,1,mse,5e-05,0.8,1500,100000,"add eps_step_limit, no gradient clipping, sample wo replacement",rms,500,0.05
+param_0061,Net_03,8000,90,205,True,1,170,0.005,1.0,2000,0.99,1,mse,0.00025,0.8,1500,100000,"add eps_step_limit, no gradient clipping, sample wo replacement",rms,500,0.02
+param_0062,Net_03,8000,90,205,True,1,170,0.005,1.0,2000,0.99,1,mse,5e-05,0.8,1500,100000,"add eps_step_limit, no gradient clipping, sample wo replacement",rms,500,0.02
+param_0063,Net_03,8000,90,205,False,1,170,0.005,1.0,2000,0.99,1,mse,5e-05,0.8,1500,100000,"add eps_step_limit, no gradient clipping, sample wo replacement",rms,500,0.02
+param_0064,Net_03,8000,90,205,True,1,170,0.005,1.0,2000,0.99,1,mse,2.5e-05,0.8,1500,100000,"add eps_step_limit, no gradient clipping, sample wo replacement",rms,500,0.02
+param_0065,Net_03,8000,90,205,False,1,170,0.005,1.0,2000,0.99,1,mse,2.5e-05,0.8,1500,100000,"add eps_step_limit, no gradient clipping, sample wo replacement",rms,500,0.02
+param_0066,Net_03,8000,90,205,True,1,170,0.005,1.0,2000,0.99,1,mse,1e-05,0.8,1500,100000,"add eps_step_limit, no gradient clipping, sample wo replacement",rms,500,0.02
+param_0067,Net_03,8000,90,205,False,1,170,0.005,1.0,2000,0.99,1,mse,1e-05,0.8,1500,100000,"add eps_step_limit, no gradient clipping, sample wo replacement",rms,500,0.02
+param_0068,Net_03,8000,100,215,True,1,170,0.005,1.0,2000,0.99,1,mse,5e-05,0.8,1500,100000,"add eps_step_limit, no gradient clipping, sample wo replacement",rms,500,0.05
+param_0069,Net_03,8000,100,215,True,1,170,0.005,1.0,2000,0.99,1,mse,0.0001,0.8,1500,100000,"add eps_step_limit, no gradient clipping, sample wo replacement",rms,500,0.05
+param_0070,Net_03,8000,100,215,True,1,170,0.005,1.0,2000,0.99,1,mse,0.0001,0.8,1500,100000,"add eps_step_limit, no gradient clipping, sample wo replacement",rms,500,0.02
+param_0071,Net_03,8000,100,215,True,1,170,0.005,1.0,2000,0.99,1,mse,0.0001,0.8,1500,100000,"add eps_step_limit, no gradient clipping, sample wo replacement",rms,500,0.1
+param_0072,Net_03,8000,100,215,True,1,170,0.005,1.0,2000,0.99,1,mse,0.00025,0.8,1500,100000,"add eps_step_limit, no gradient clipping, sample wo replacement",rms,500,0.05
+param_0073,Net_03,8000,100,215,True,1,170,0.005,1.0,2000,0.99,1,mse,0.00025,0.8,1500,100000,"add eps_step_limit, no gradient clipping, sample wo replacement",rms,500,0.02
+param_0074,Net_03,8000,100,215,True,1,170,0.005,1.0,2000,0.99,1,mse,0.0005,0.8,1500,100000,"add eps_step_limit, no gradient clipping, sample wo replacement",rms,500,0.05
+param_0075,Net_03,8000,100,215,True,1,170,0.005,1.0,2000,0.99,1,mse,0.0005,0.8,1500,100000,"add eps_step_limit, no gradient clipping, sample wo replacement",rms,500,0.05
+param_0076,Net_03,8000,100,215,True,1,170,0.005,1.0,2000,0.99,1,mse,0.0005,0.8,1500,100000,"add eps_step_limit, no gradient clipping, sample wo replacement",rms,500,0.05
+param_0077,Net_03,8000,100,215,True,1,170,0.005,1.0,2000,0.99,1,mse,0.0005,0.8,1500,100000,"add eps_step_limit, no gradient clipping, sample wo replacement",rms,500,0.02
+param_0078,Net_03,8000,100,215,True,1,170,0.005,1.0,2000,0.99,1,mse,0.0005,0.8,1500,100000,"add eps_step_limit, no gradient clipping, sample wo replacement",rms,500,0.1
+param_0079,Net_03,8000,100,215,True,1,170,0.005,1.0,2000,0.99,1,mse,0.001,0.8,1500,100000,,rms,500,0.02
+param_0080,Net_03,8000,100,215,True,1,170,0.005,1.0,2000,0.99,1,mse,0.0005,0.8,1500,100000,,rms,500,
+param_0081,Net_03,8000,100,215,True,1,170,0.005,1.0,2000,0.99,1,mse,0.0005,0.8,1500,100000,,rms,500,
+param_0082,Net_03,8000,100,215,True,1,170,0.005,1.0,2000,0.99,1,mse,0.05,0.8,1500,100000,,rms,500,
+param_0083,Net_03,8000,100,215,True,1,170,0.005,1.0,2000,0.99,1,mse,5e-06,0.8,1500,100000,,rms,500,
+param_0084,Net_01,8000,100,215,True,1,170,0.005,1.0,2000,0.99,1,mse,5e-05,0.8,1500,100000,,rms,500,
+param_0085,Net_01,8000,150,220,False,1,170,0.005,1.0,2000,0.99,1,mse,5e-05,0.8,1500,100000,,rms,500,0.02
+param_0086,Net_01,8000,150,220,False,1,170,0.005,1.0,2000,0.99,1,mse,5e-05,0.8,2500,100000,,rms,500,0.02
+param_0087,Net_03,8000,150,220,False,1,170,0.005,1.0,2000,0.99,1,mse,5e-05,0.8,2500,100000,,rms,500,0.02
+param_0088,Net_02,8000,150,220,False,1,170,0.005,1.0,2000,0.99,1,mse,5e-05,0.8,2500,100000,,rms,500,0.02
+param_0089,Net_01,8000,150,220,True,1,170,0.005,1.0,2000,0.99,1,mse,5e-05,0.8,2500,100000,,rms,500,0.02
+param_0090,Net_03,8000,150,220,False,1,170,0.005,1.0,2000,0.9,1,mse,5e-05,0.8,2500,100000,,rms,500,0.02
