@@ -28,9 +28,6 @@ def plot_rewards(rewards, title, mean=100):
         plt.plot(means.numpy())
 
     plt.pause(0.001)  # pause a bit so that plots are updated
-    #if is_ipython:
-    #    display.clear_output(wait=True)
-    #    display.display(plt.gcf())
 
 def plot_durations(episode_durations, title, mean=100):
     plt.figure(2)
@@ -47,9 +44,7 @@ def plot_durations(episode_durations, title, mean=100):
         plt.plot(means.numpy())
 
     plt.pause(0.001)  # pause a bit so that plots are updated
-    #if is_ipython:
-    #    display.clear_output(wait=True)
-    #    display.display(plt.gcf())
+
 
 def plot_result(name, title):
     infile = os.path.join("logs","{}.csv".format(name))
@@ -115,8 +110,6 @@ def plot_log(fname):
     elif len(result.columns) == 1:
         result.columns = ['Reward']
     result["Rolling Mean"] = result["Reward"].rolling(window=100).mean()
-    #result.fillna(0, inplace=True)
-    #print(result)
 
     plot_multi(result, figsize=(10, 5))
     plt.savefig(outfile)

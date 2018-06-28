@@ -115,8 +115,6 @@ class ExpMemory(object):
         self.memory[index, :] = transition
         self.memory_counter += 1
 
-Transition = namedtuple('Transition',
-                        ('state', 'action','reward', 'next_state', 'done'))
 
 
 # DQN learner
@@ -137,11 +135,8 @@ class DQN(object):
         self.game_a_shape = 0 if isinstance(game.action_space.sample(), int) else game.action_space.sample().shape     # to confirm the shape
 
         self.eval_net = ann(self.n_states, self.n_actions).to(device)
-        #self.eval_net.cuda()
         self.target_net = ann(self.n_states, self.n_actions).to(device)
-        #self.target_net.cuda()
-        self.test_net = ann(self.n_states, self.n_actions).to(device)
-        #self.test_net.cuda()
+         self.test_net = ann(self.n_states, self.n_actions).to(device)
         self.max_episode = max_episode
         self.eps_end = eps_end
         self.eps_start = eps_start
@@ -182,19 +177,13 @@ class DQN(object):
         #sample = random.random()
         
         self.steps_done += 1
-        #s = torch.unsqueeze(torch.FloatTensor(s, device=device), 0) #insert axis=0
-        #s = torch.FloatTensor(s, device=device).unsqueeze(0) #insert axis=0
         s = torch.FloatTensor(s).unsqueeze(0).to(device) #insert axis=0
         # input only one sample
         if np.random.uniform() >= eps_threshold:   # greedy
             with torch.no_grad():
                 actions_value = self.eval_net.forward(s)
-            #actions_value = self.eval_net.forward(s)
-            #print(actions_value)
             action = torch.max(actions_value, 1)[1].data.cpu().numpy()
-            #print(action)
             action = action[0] if self.game_a_shape == 0 else action.reshape(self.game_a_shape)  # return the argmax index
-            #print(action)
         else:   # random
             #action = np.random.randint(0, self.n_actions)
             #action = action if self.game_a_shape == 0 else action.reshape(self.game_a_shape)
@@ -220,36 +209,22 @@ class DQN(object):
         b_s_next = torch.tensor(b_memory[:, -self.n_states-1:-1], device=device, dtype=torch.float32) #FloatTensor
 
         # q_eval w.r.t the action in experience
-        #print("-----")
         q_eval = self.eval_net(b_s).gather(1, b_a)  # shape (batch, 1)
-        #print ("q_eval: {}".format(q_eval.size()))
         q_next = self.target_net(b_s_next).detach()     # detach from graph, don't backpropagate
-        #print ("q_next: {}".format(q_next.size()))
         if self.dd: #double DQN
 
             q_eval4next = self.eval_net(b_s_next).detach()
-            #print ("q_eval4next: {}".format(q_eval4next.size()))
             max_act4next = q_eval4next.argmax(1)
-            #print ("max_act4next: {}".format(max_act4next.size()))
-            #print ("non_final_mask: {}".format(non_final_mask.size()))
             q_next = q_next[:, max_act4next][:,0].view(self.memory.batch_size, 1)
-            #print ("q_next: {}".format(q_next.size()))
             q_next = non_final_mask * q_next
-            #print ("q_next: {}".format(q_next.size()))
-            #print("-----")
         else: #normal DQN
-            
-            #q_next = non_final_mask * q_next.max(1)[0].view(self.memory.batch_size, 1)
-            q_next = non_final_mask * q_next.max(1, keepdim=True)[0]#.view(self.memory.batch_size, 1)
-            #print ("q_next: {}".format(q_next.size()))
+            q_next = non_final_mask * q_next.max(1, keepdim=True)[0]
 
         q_target = b_r + self.gamma * q_next   # shape (batch, 1)
         loss = self.loss_func(q_eval, q_target)
 
         self.optimizer.zero_grad()
         loss.backward()
-        #for param in self.eval_net.parameters(): #gradien clipping
-        #    param.grad.data.clamp_(-1, 1)
         self.optimizer.step()
 
 
@@ -313,8 +288,6 @@ class DQN(object):
                     self.rewards.append(ep_r)
                     if self.demo>0: plot_rewards(self.rewards, "training...")
                     break
-                #if t > 1000:
-                #    break
                 s = s_prime
 
             ep_r_list.append(ep_r)
@@ -350,10 +323,6 @@ class DQN(object):
                 
         #save model weights
         self.save_weights(weight_name="weights", model_name="model")
-        #torch.save(self.eval_net.state_dict(), os.path.join("weights","weights_eval_net_{}".format(self.param_name)))
-        #torch.save(self.target_net.state_dict(), os.path.join("weights","weights_target_net_{}".format(self.param_name)))
-        #torch.save(self.eval_net, os.path.join("weights","model_eval_net_{}".format(self.param_name)))
-        #torch.save(self.target_net, os.path.join("weights","model_target_net_{}".format(self.param_name)))
 
         print('Complete')
         if self.demo>1: self.game.render()
@@ -415,22 +384,7 @@ class DQN(object):
 
 def train_model(env, params, param_name):
     demo = 0
-    """
-    # hyper parameters
-    max_episode = 5000
-    batch_size = 64
-    lr = 1e-5#0.00001                   # learning rate
-    lr_decay = 0.8
-    tau = 0.1 #soft update coefficient
 
-    eps_start = 0.99
-    eps_end = 0.05
-    eps_decay = 1000000#80000000
-    gamma = 0.99#0.99              # reward discount
-    target_replace_iter = 10#100   # target update frequency
-    memory_capacity = 4000#4000#10000
-    dd = true
-    """
 
     # Hyper Parameters
     loss = params["loss"]
@@ -455,7 +409,6 @@ def train_model(env, params, param_name):
     converge_episode = params["converge_episode"]
     converge_value = params["converge_value"]
  
-    #param_name = "lunar_lr_{}_gamma{}_eps{}_{}".format(LR, GAMMA, EPS_START, EPS_END).replace(".", "")
     
     learner = DQN(env, eval(ann), loss, optim,\
                 gamma, memory_capacity, \
@@ -480,22 +433,6 @@ def train_model(env, params, param_name):
 if __name__ == '__main__':
 
     print("run from run.py")
-    
-    """
-    max_episode_range = [10000]
-    batch_size_range = [64]
-    lr_range = [1e-2, 1e-3, 1e-4, 1e-5, 1e-6]#0.00001                   # learning rate
-    lr_decay_range = [0.8]
-    tau_range = [0.1] #soft update coefficient
-
-    eps_start_range = [0.99]
-    eps_end_range = [0.05]
-    eps_decay_range = [1000000]#80000000
-    gamma_range = [0.85, 0.90, 0.95, 0.99]#0.99              # reward discount
-    target_replace_iter_range = [10]#100   # target update frequency
-    memory_capacity_range = [4000]#4000#10000
-    dd_range = [true, false]
-    """
 
     
 

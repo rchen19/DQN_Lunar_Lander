@@ -107,29 +107,9 @@ if __name__ == '__main__':
         df = pd.DataFrame(param_list).T
         df.to_csv(os.path.join("params", "param_list.csv"))
 
-
-        #if sys.argv[1] == "carpole":
-        #    env = env = gym.make('CartPole-v0').unwrapped
-        #elif sys.argv[1] == "lunar":
-            #env = LunarLander()
-            #env = gym.make('LunarLander-v2').unwrapped
-
         env = LunarLander()
 
-
         train_model(env, params, param_name)
-        #plot_result("train", "Training")
-
-        #weights = sys.argv[3]
-        #test_model(env)
-        #plot_result("test", "Testing")
-    #data = json.dumps(param_list, indent=2)
-
-    #with open(param_list_json,"w") as f:
-    #    f.write(data)
-
-    #df = pd.DataFrame(param_list).T
-    #df.to_csv(os.path.join("params", "param_list.csv"))
 
 
 
