@@ -56,10 +56,6 @@
 \thispagestyle{fancy}
 
 
-\begin{abstract}
-This report presents a solution to the LunarLander-v2 problem provided by OpenAI Gym (\burl{https://gym.openai.com/envs/LunarLander-v2/}) using deep reinforcement learning methods. Code used to run experiments described in this report is hosted here: \burl{https://github.gatech.edu/rchen350/cs7642summer2018p2}, which is also linked in the header as required
-\end{abstract}
-
 \section{Game: LunarLander-v2} \label{game}
 
 \textit{Game} The game is comprised of a 2D Newtonian mechanical environment, a small rocket is initialized at the top middle position of the 2D environment, with certain random but bounded initial state. The state vector of the rocket is $S=\{x_1, x_2, \dot{x_1}, \dot{x_2}, \theta, \dot{\theta}, L, R\}$, where $x_1$, $x_2$, are location coordinates in the 2D environment, and $\theta$ is the 2D rotational angle of the rocket, their first order derivatives are the velocities respectively. $L$ and $R$ are binary values indicating whether the rocket's left or right leg is touching the ground. The actions space is discrete, comprised of \{\textit{firing left engine, firing right engine, firing main engine, do nothing}\}. An episode finishes if the lander crashes or comes to rest, receiving additional $-100$ or $+100$ points respectively. Each leg ground contact is worth $+10$ points. Firing main engine incurs a $-0.3$ point penalty for each occurrence. And the goal is to land the rocket within designated location marked by two flags and maximize the total reward.\par
@@ -83,7 +79,7 @@ This report presents a solution to the LunarLander-v2 problem provided by OpenAI
 
 
 \section{Experiments and Results} \label{experiments}
-Experiments were run with different algorithms and/or different hyperparameters on the LunarLander game. The training sessions were performed until the rolling average of reward over 100 episode reach 215, and capped at total 2500 episodes. The testing of the trained networks were run 100 times, and the rewards were plotted. 3 different ANNs were tested and the network used in DQN is with 3 hidden layers and 80 nodes each.
+Experiments were run with different algorithms and/or different hyperparameters on the LunarLander game. The training sessions were performed until the rolling average of reward over 100 episode reach 215, and capped at total 2500 episodes. The testing of the trained networks were run 100 times, and the rewards were plotted. 3 different ANNs were tested and the network used in DQN is with 3 hidden layers and 80 nodes each. The Q-learning part follows a $\epsilon$-greedy policy in choosing actions, $\epsilon$ decay was relatively fast to ensure faster convergence (see $\epsilon$ in learning curves).
 
 \par
 
@@ -101,6 +97,7 @@ First, deep Q networks (DQN) is tested. Here DQN refers to bare-bone DQN with fi
 \begin{algorithmic}
 \STATE input: $D$ - empty replay buffer; $\theta$ - eval network parameters, $\theta^-$ - copy of $\theta$ (target network parameters)
 \STATE input : $N_r$ - replay buffer maximum size; $N_b$ - training batch size; $N^-$ - target network replacement freq
+\STATE initiate $\epsilon \leftarrow 1$, $i \leftarrow 1$
 \REPEAT
 \STATE reset game: $S\leftarrow env()$
 \STATE $R\leftarrow 0$
@@ -116,7 +113,7 @@ First, deep Q networks (DQN) is tested. Here DQN refers to bare-bone DQN with fi
 \right.
 $
 \STATE one step optimization on $\theta$ with loss $\lVert Q_{\text{target}}-Q_{\text{eval}}\rVert$
-\STATE $R\leftarrow R+r$
+\STATE $R\leftarrow R+r$, $i \leftarrow i+1$, $\epsilon\leftarrow 0.05+0.95e^{-i/170}$
 \STATE $\theta^- \leftarrow \theta$ if $t\mod N^- = 0$
 \ENDFOR
 \UNTIL{no significant improvement in $R$}
